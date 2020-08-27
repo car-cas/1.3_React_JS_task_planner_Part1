@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import {Login} from "./components/Login.js";
 import {Register} from "./components/Register.js";
+import {Home} from "./components/Home.js";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route exact path="/" component={Login} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/home" component={Home} />
         </header>
       </div>
     </Router>

@@ -13,11 +13,11 @@ import './Login.css'
 
 export class Login extends React.Component{
     constructor(props){
-            super(props);
-            this.state ={user:"",pass:""};
-            this.handleSubmit = this.handleSubmit.bind(this);
-            this.handleUser = this.handleUser.bind(this);
-            this.handlePass = this.handlePass.bind(this);
+        super(props);
+        this.state ={user:"",pass:""};
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleUser = this.handleUser.bind(this);
+        this.handlePass = this.handlePass.bind(this);
     }
     render(){
         return (
