@@ -14,7 +14,7 @@ import './Login.css'
 export class Login extends React.Component{
     constructor(props){
         super(props);
-        this.state ={user:"",pass:""};
+        this.state ={email:"",password:""};
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleUser = this.handleUser.bind(this);
         this.handlePass = this.handlePass.bind(this);
@@ -67,13 +67,19 @@ export class Login extends React.Component{
         );
     }
     handleUser(user){
-            this.setState({email: user.target.value});
+        this.setState({email: user.target.value});
     }
     handlePass(pass){
         this.setState({password: pass.target.value});
     }
     handleSubmit(){
-
+        if (localStorage.getItem("email") === this.state.email && localStorage.getItem("password") === this.state.password){
+            localStorage.setItem('page', 'home');
+        }
+        this.setState({
+            email: "",
+            password: ""
+        });
     }
 
 }

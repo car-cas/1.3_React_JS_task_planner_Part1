@@ -67,14 +67,4 @@ export class Register extends React.Component{
             </React.Fragment>
         );
     }
-    handleUser(user){
-            this.setState({email: user.target.value});
-    }
-    handlePass(pass){
-        this.setState({password: pass.target.value});
-    }
-    handleSubmit(){
-
-    }
-
 }

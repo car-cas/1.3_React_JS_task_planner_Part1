@@ -1,24 +1,27 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import logo from './logo.svg';
+import { Component } from "react";
 import './App.css';
-import {Login} from "./components/Login.js";
-import {Register} from "./components/Register.js";
-import {Home} from "./components/Home.js";
+import {Login} from "./components/Login";
+import Home from "./components/Home";
 
-function App() {
-  return (
-    <Router>
+class App extends Component{
+  constructor(props) {
+    super(props);
+    localStorage.setItem('email',"admin");
+    localStorage.setItem('password',"admin");
+  }
+  render(){
+    return (
       <div className="App">
-        <header className="App-header">
-          <Route exact path="/" component={Login} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/home" component={Home} />
-        </header>
+          <header className="App-header">
+              {localStorage.getItem('page') === 'home' ?
+                  <Home/> :
+                  <Login/>
+              }
+          </header>
       </div>
-    </Router>
-  );
+    );
+  }
 }
 
 export default App;
