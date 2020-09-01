@@ -1,5 +1,6 @@
 import React from "react";
-import {ListItem, Drawer, Divider, CssBaseline, Toolbar, Button} from "@material-ui/core";
+import {CardTask} from "./CardTask";
+import {ListItem, Drawer, Divider, CssBaseline, Toolbar} from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import List from "@material-ui/core/List";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -13,6 +14,7 @@ import PropTypes from 'prop-types';
 import AssignmentIndOutlinedIcon from '@material-ui/icons/AssignmentIndOutlined';
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
 import MeetingRoomOutlinedIcon from '@material-ui/icons/MeetingRoomOutlined';
+import classNames from 'classnames';
 
 const useStyles = makeStyles((theme) => ({}));
 
@@ -26,7 +28,35 @@ class Home extends React.Component{
 
     state = {
         open: false,
-        task: []
+        task: [
+            {
+                "description": "Implement Login view",
+                "responsible": {
+                    "name": "Carlos Castañeda",
+                    "email": "admin@gmail.co"
+                },
+                "status": "In Progress",
+                "dueDate": new Date()
+            },
+            {
+                "description": "Implement Login controller ",
+                "responsible": {
+                    "name": "Carlos Castañeda",
+                    "email": "admin@gmail.co"
+                },
+                "status": "Ready",
+                "dueDate": new Date()
+            },
+            {
+                "description": "Facebook Integration",
+                "responsible": {
+                    "name": "Carlos Castañeda",
+                    "email": "admin@gmail.co"
+                },
+                "status": "Completed",
+                "dueDate": new Date()
+            }
+        ]
     };
 
     render() {
@@ -65,6 +95,12 @@ class Home extends React.Component{
                         <Link href="./">Logout</Link>
                     </div>
                 </Drawer>
+                <main className={classNames(classes.content,{[classes.contentShift]: this.state.open})}>
+                    <div />
+                    {this.state.task.map(task => {
+                        return (<CardTask info={task}/>);
+                    })}
+                </main>
             </div>
         );
     }
